@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jeopardy!</title>
+		<style>
+			table {
+				height: 670px;
+				width: 1430px;
+				border: 5px solid black;
+				border-collapse: collapse;
+			}
+			#categ {
+				color: #f2f4f8;
+				text-align: center;
+				font-size: 50px;
+			}
+			td {
+				background-color: #051179;
+				text-align: center;
+				border: 10px solid black;
+			}
+			.qs:hover {
+				background-color: white;
+			}
+			#m200, #m400, #m600, #m800, #m1000 {
+				color: #cb9746;
+				font-size: 50px;
+				cursor: pointer;
+			}
+			#counter {
+				color: #051179;
+				float: left;
+				margin-left: 500px;
+			}
+			#count {
+				float: right;
+				color: #051179;
+				margin-right: 680px;
+			}
+		</style>
+	</head>
+	<body>
+			<div id = 'counter'><h1> Score: </h1></div>
+			 <div><h1 id='count'></h1></div>
+		<div id='tabl'>
+			<table>
+				<tr id='categ'>
+					<td id='categ1'> Logos </td>
+					<td id='categ2'> Sports </td>
+					<td id='categ3'> Disney </td>
+					<td id='categ4'> SpongeBob </td>
+					<td id='categ5'> Skiing </td>
+					<td id='categ6'> Star Wars </td>
+				</tr>
+				<tr id='m200'>
+					<td id='q1categ1' onclick="qanda200('What companys logo is a swish?', 'nike')"> $200 </td>
+					<td id='q1categ2' onclick="qanda200('Which city are the Broncos from?', 'denver')"> $200 </td>
+					<td id='q1categ3' onclick="qanda200('What year did Disneyland open?', '1955')"> $200 </td>
+					<td id='q1categ4' onclick="qanda200('Where does SpongeBob work?', 'krusty krab')"> $200 </td>
+					<td id='q1categ5' onclick="qanda200('What is the name of loose, deep, unskied snow?', 'powder')"> $200 </td>
+					<td id='q1categ6' onclick="qanda200('What do they call the invisible power that binds the galaxy together?', 'force')"> $200 </button></td>
+				</tr>
+				<tr id='m400'>
+					<td id='q2categ1' onclick="qanda400('What companys logo is a dice?', 'dominos')"> $400 </td>
+					<td id='q2categ2' onclick="qanda400('Which NFL team has a 20-straight winning season?', ' cowboys')"> $400 </td>
+					<td id='q2categ3' onclick="qanda400('Who is Mufasa’s trusted advisor in The Lion King?', 'zazu')"> $400 </td>
+					<td id='q2categ4' onclick="qanda400('What does Mr.Krabs Love?', 'money')"> $400 </td>
+					<td id='q2categ5' onclick="qanda400('What is the name of a bright and sunny ski day?', 'bluebird')"> $400 </td>
+					<td id='q2categ6' onclick="qanda400('What is the name of Yoda’s home?', 'dagobah')"> $400 </td>
+				</tr>
+				<tr id='m600'>
+					<td id='q3categ1' onclick="qanda600('What companys logo is a bird?', 'twitter')"> $600 </td>
+					<td id='q3categ2' onclick="qanda600('Which team won the first Super Bowl in 1967?', 'packers')"> $600 </td>
+					<td id='q3categ3' onclick="qanda600('Pongo and Perdita originally had how many puppies in 101 Dalmatians?', '15')"> $600 </td>
+					<td id='q3categ4' onclick="qanda600('Which student has been enrolled in Mrs. Puff’s Boating School since it was founded but never passed a single test?', 'spongebob')"> $600 </td>
+					<td id='q3categ5' onclick="qanda600('What is the name of a bump formed on a ski slope from many skiers turning in the same place?', 'mogul')"> $600 </td>
+					<td id='q3categ6' onclick="qanda600('What is the Toydarian’s name who owned Anakin Skywalker?', 'watto')"> $600 </td>
+				</tr>
+				<tr id='m800'>
+					<td id='q4categ1' onclick="qanda800('What companys logo is a rainbow?', 'nbc')"> $800 </td>
+					<td id='q4categ2' onclick="qanda800('Who has the most touchdown passes?', 'tom brady')"> $800 </td>
+					<td id='q4categ3' onclick="qanda800('What was the first Pixar movie?', 'toy story')"> $800 </td>
+					<td id='q4categ4' onclick="qanda800('What instrument does Squidward play?', 'clarinet')"> $800 </td>
+					<td id='q4categ5' onclick="qanda800('What do people use to hike up a mountain on skis?', 'skins')"> $800 </td>
+					<td id='q4categ6' onclick="qanda800('Who built C-3P0?', 'anakin skywalker')"> $800 </td>
+				</tr>
+				<tr id='m1000'>
+					<td id='q5categ1' onclick="qanda1000('What companys logo is a P?', 'playstation')"> $1000 </td>
+					<td id='q5categ2' onclick="qanda1000('What team won the NFC East division championship in 1985?', 'cowboys')"> $1000 </td>
+					<td id='q5categ3' onclick="qanda1000('What is the name of Andy’s neighbor in Toy Story?', 'sid')"> $1000 </td>
+					<td id='q5categ4' onclick="qanda1000('What is Plankton’s first name?', 'sheldon')"> $1000 </td>
+					<td id='q5categ5' onclick="qanda1000('What is the name of a lift that you stand on?', 't bar')"> $1000 </td>
+					<td id='q5categ6' onclick="qanda1000('What age did Padmé Amidala become a queen?')"> $1000 </td>
+				</tr>
+			</table>
+		</div>
+		<script>
+			let score = 0;
+			function qanda200(x, correct){
+				let a = prompt(x);
+				answer = a.toLowerCase();
+				if(answer == correct){
+					alert('Correct!');
+					score += 200;
+					document.getElementById('count').innerHTML = score;
+				} else {
+					alert('Wrong, the correct answer is ' + correct);
+					score -= 200;
+					document.getElementById('count').innerHTML = score;
+				}
+			}
+			function qanda400(x, correct){
+				let a = prompt(x);
+				answer = a.toLowerCase();
+				if(answer == correct){
+					alert('Correct!');
+					score += 400;
+					document.getElementById('count').innerHTML = score;
+				} else {
+					alert('Wrong, the correct answer is ' + correct);
+					score -= 400;
+					document.getElementById('count').innerHTML = score;
+				}
+			}
+			function qanda600(x, correct){
+				let a = prompt(x);
+				answer = a.toLowerCase();
+				if(answer == correct){
+					alert('Correct!');
+					score += 600;
+					document.getElementById('count').innerHTML = score;
+				} else {
+					alert('Wrong, the correct answer is ' + correct);
+					score -= 600;
+					document.getElementById('count').innerHTML = score;
+				}
+			}
+			function qanda800(x, correct){
+				let a = prompt(x);
+				answer = a.toLowerCase();
+				if(answer == correct){
+					alert('Correct!');
+					score += 800;
+					document.getElementById('count').innerHTML = score;
+				} else {
+					alert('Wrong, the correct answer is ' + correct);
+					score -= 800;
+					document.getElementById('count').innerHTML = score;
+				}
+			}
+			function qanda1000(x, correct){
+				let a = prompt(x);
+				answer = a.toLowerCase();
+				if(answer == correct){
+					alert('Correct!');
+					score += 1000;
+					document.getElementById('count').innerHTML = score;
+				} else {
+					alert('Wrong, the correct answer is ' + correct);
+					score -= 1000;
+					document.getElementById('count').innerHTML = score;
+				}
+			}
+		</script>
+	</body>
+</html>
